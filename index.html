@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Saksham Singhal, a B.Tech student learning frontend development: skills, projects and contact details.">
+  <meta name="theme-color" content="#0a1628">
+  <meta property="og:title" content="Saksham Singhal | Portfolio">
+  <meta property="og:description" content="B.Tech student learning frontend development with HTML5 and CSS3.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='44' font-size='34' font-weight='700' text-anchor='middle' fill='white' font-family='Arial,sans-serif'%3ES%3C/text%3E%3C/svg%3E">
+  <title>Saksham Singhal | Portfolio</title>
+  <style>
+
+:root {
+  --navy-950: #070f1d;
+  --navy-900: #0a1628;
+  --navy-800: #0f2040;
+  --navy-700: #1a3158;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-600: #2563eb;
+  --white: #ffffff;
+  --gray-50: #f4f7fb;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-600: #475569;
+
+  --gradient-main: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+  --radius: 16px;
+  --shadow-soft: 0 8px 24px rgba(10, 22, 40, 0.10);
+  --shadow-hover: 0 14px 32px rgba(37, 99, 235, 0.25);
+  --transition: 0.25s ease;
+  --max-width: 1100px;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;  
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; 
+}
+
+body {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--navy-900);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+a { color: var(--blue-600); }
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--blue-400);
+  outline-offset: 3px;
+}
+
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--blue-600);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition),
+              background var(--transition), color var(--transition);
+}
+.btn-primary {
+  background: var(--gradient-main);
+  color: var(--white);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.btn-outline {
+  border-color: var(--blue-400);
+  color: var(--white);
+  background: transparent;
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--blue-500);
+  border-color: var(--blue-500);
+  transform: translateY(-2px);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--navy-700);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.logo {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.logo-dot { color: var(--blue-400); }
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.nav-list a {
+  display: block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  color: var(--gray-300);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background: var(--navy-700);
+  color: var(--white);
+}
+
+.hero {
+  background:
+    radial-gradient(rgba(96, 165, 250, 0.12) 1px, transparent 1px) 0 0 / 28px 28px,
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.25), transparent 45%),
+    linear-gradient(160deg, var(--navy-900), var(--navy-800));
+  color: var(--white);
+  padding: 5rem 0;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 3rem;
+}
+.eyebrow {
+  color: var(--blue-400);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.15;
+  margin: 0.2rem 0 0.4rem;
+  overflow-wrap: anywhere;
+}
+.hero-role {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--blue-400);
+  margin-bottom: 1rem;
+}
+.hero-intro {
+  color: var(--gray-300);
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+.hero-chips li {
+  padding: 0.25rem 0.85rem;
+  border: 1px solid var(--navy-700);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.hero-image {
+  justify-self: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.avatar {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gradient-main);
+  color: var(--white);
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 4px solid var(--blue-400);
+  box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.15), var(--shadow-soft);
+}
+.avatar-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--blue-400);
+  box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.15), var(--shadow-soft);
+}
+
+.section { padding: 5rem 0; }
+.section-light { background: var(--gray-50); }
+.section-dark {
+  background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+  color: var(--white);
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.25;
+  text-align: center;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+  background: var(--gradient-main);
+}
+.section-subtitle {
+  text-align: center;
+  color: var(--gray-600);
+  margin: 1rem 0 3rem;
+}
+.section-dark .section-subtitle { color: var(--gray-300); }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--gray-200);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.about-card,
+.project-card { border-top: 4px solid var(--blue-500); }
+.card h3 { margin-bottom: 0.8rem; color: var(--navy-800); line-height: 1.3; }
+.card p { color: var(--gray-600); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--navy-700);
+  transition: transform var(--transition), background var(--transition),
+              border-color var(--transition);
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(59, 130, 246, 0.18);
+  border-color: var(--blue-400);
+}
+.skill-name { font-size: 1.15rem; font-weight: 700; color: var(--white); }
+.skill-desc { color: var(--gray-300); font-size: 0.95rem; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+.project-card { display: flex; flex-direction: column; }
+.project-card h3 { font-size: 1.3rem; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+}
+.tags li {
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  background: #e0ecff;
+  color: var(--navy-800);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.project-card .project-status {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.4rem 0.9rem;
+  border: 1px dashed var(--gray-300);
+  border-radius: 10px;
+  background: var(--gray-50);
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.project-status::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--blue-500);
+}
+.project-link {
+  margin-top: auto;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.project-link:hover,
+.project-link:focus-visible { text-decoration: underline; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.contact-list { display: grid; gap: 1rem; }
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--navy-700);
+  overflow-wrap: anywhere;
+}
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--gray-300);
+}
+.contact-list a {
+  color: var(--blue-400);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.contact-list a:hover,
+.contact-list a:focus-visible { text-decoration: underline; color: var(--white); }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--navy-900);
+  box-shadow: var(--shadow-soft);
+}
+.form-note {
+  background: #fff7e0;
+  border-left: 4px solid #f59e0b;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #5b4300;
+  margin-bottom: 0.5rem;
+}
+.contact-form label { font-weight: 600; font-size: 0.95rem; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 10px;
+  font: inherit;
+  margin-bottom: 0.6rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.contact-form input:hover,
+.contact-form textarea:hover { border-color: var(--blue-400); }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+.contact-form textarea { resize: vertical; }
+.contact-form .btn { align-self: flex-start; }
+
+.site-footer {
+  background: var(--navy-950);
+  color: var(--gray-300);
+  padding: 1.5rem 0;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.back-to-top {
+  color: var(--blue-400);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.back-to-top:hover,
+.back-to-top:focus-visible { color: var(--white); text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .hero { padding: 3.5rem 0; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-intro { margin-left: auto; margin-right: auto; }
+  .button-group { justify-content: center; }
+  .hero-image { order: -1; max-width: 220px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .section { padding: 3.5rem 0; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .header-inner { flex-direction: column; gap: 0.4rem; }
+  .nav-list { justify-content: center; gap: 0.15rem; }
+  .nav-list a { padding: 0.35rem 0.6rem; font-size: 0.9rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .card, .contact-form { padding: 1.4rem; }
+  .btn { width: 100%; text-align: center; }
+  .contact-form .btn { align-self: stretch; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  html { scroll-padding-top: 110px; }
+}
+
+@media (max-width: 380px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .nav-list a { padding: 0.35rem 0.5rem; font-size: 0.85rem; }
+}
+
+@media print {
+  .site-header, .contact-form, .back-to-top, .skip-link { display: none; }
+  .hero, .section-dark { background: var(--white); color: var(--navy-900); }
+  .hero-intro, .section-dark .section-subtitle, .skill-desc,
+  .contact-label { color: var(--gray-600); }
+  .skill-name { color: var(--navy-900); }
+  .contact-list a { color: var(--blue-600); }
+  .card, .skill-card, .contact-list li { box-shadow: none; break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+  </style>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Saksham Singhal<span class="logo-dot">.</span></a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Saksham Singhal</h1>
+          <p class="hero-role">Aspiring Frontend Developer</p>
+          <p class="hero-intro">
+            I'm a B.Tech student learning to build clean, responsive websites
+            with HTML5 and CSS3. My goal is to become a frontend developer who
+            makes accessible, well-designed web pages.
+          </p>
+          <ul class="hero-chips" aria-label="Currently learning">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Responsive Design</li>
+          </ul>
+          <div class="button-group">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+
+          <div class="avatar" role="img" aria-label="Initials S S, a placeholder for the profile photo of Saksham Singhal">
+            <span aria-hidden="true">SS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A little about my background and goals</p>
+
+        <div class="about-grid">
+          <article class="card about-card">
+            <h3>Biography</h3>
+            <p>
+              Hi, I'm Saksham. I'm a B.Tech student and I've just started learning
+              web development. I enjoy taking a plain idea and turning it into a
+              page that looks neat and works on both a phone and a laptop. This
+              portfolio is one of my first projects, and I'm using it to practise
+              HTML and CSS.
+            </p>
+          </article>
+
+          <article class="card about-card">
+            <h3>Education</h3>
+            <p>
+              Pursuing B.Tech<br>
+              Jaypee University of Engineering and Technology
+            </p>
+          </article>
+
+          <article class="card about-card">
+            <h3>Career Interests &amp; Goals</h3>
+            <p>
+              I'm interested in frontend development, responsive design and making
+              websites easy to use. Next, I want to get comfortable with HTML and
+              CSS, then learn more advanced frontend tools and build bigger projects.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-dark">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Technologies and concepts I am learning and using</p>
+
+        <ul class="skills-grid">
+          <li class="skill-card">
+            <span class="skill-name">HTML5</span>
+            <span class="skill-desc">Page structure and content</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-name">CSS3</span>
+            <span class="skill-desc">Colours, spacing and typography</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-name">Responsive Design</span>
+            <span class="skill-desc">Layouts for any screen size</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-name">Flexbox</span>
+            <span class="skill-desc">Row and column layouts</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-name">CSS Grid</span>
+            <span class="skill-desc">Grid-based page layouts</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-name">Semantic HTML</span>
+            <span class="skill-desc">Meaningful, accessible markup</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="projects" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Work I have built or am building with HTML and CSS</p>
+
+        <div class="projects-grid">
+
+          <article class="card project-card">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              The website you are viewing. I built it for my HTML &amp; CSS internship
+              to practise semantic HTML, CSS variables, Flexbox, Grid and media queries.
+            </p>
+            <ul class="tags" aria-label="Technologies used">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Flexbox</li>
+              <li>CSS Grid</li>
+            </ul>
+
+            <p class="project-status">Status: Completed. Repository link coming soon</p>
+          </article>
+
+          <article class="card project-card">
+            <h3>Responsive Landing Page</h3>
+            <p>
+              A planned practice project: a mobile-first landing page with a hero
+              banner, feature cards and a call-to-action button that adapts from
+              phone to desktop.
+            </p>
+            <ul class="tags" aria-label="Planned technologies">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Media Queries</li>
+              <li>Responsive Design</li>
+            </ul>
+            <p class="project-status">Status: Planned. Not started yet</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-dark">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Let's connect. I'd love to hear from you</p>
+
+        <div class="contact-grid">
+          <div class="contact-details">
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Email</span>
+                <a href="mailto:251b200@juetguna.in">251b200@juetguna.in</a>
+              </li>
+              <li>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/SakshamSinghal21" target="_blank" rel="noopener">github.com/SakshamSinghal21</a>
+              </li>
+              <li>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/saksham-singhal21/" target="_blank" rel="noopener">linkedin.com/in/saksham-singhal21</a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form" aria-describedby="form-note">
+            <p id="form-note" class="form-note">
+              Visual demo only: this form does not send messages.
+              Please use the email link in this section instead.
+            </p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
+
+            <button type="button" class="btn btn-primary">Send (demo only)</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Saksham Singhal. All rights reserved.</p>
+      <a href="#home" class="back-to-top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+</body>
+</html>
